@@ -1,0 +1,21 @@
+.piece-in-box {
+    background-color: #ccc;
+    width: 50px;
+    height: 58px;
+    line-height: 58px;
+    text-align: center;
+    transform: skewY(-30deg) rotate(60deg);
+
+}
+
+.piece-out-box {
+    margin: 0 2px;
+    overflow: hidden;
+    width: 50px;
+    height: 58px;
+    transform: rotate(-60deg) skewY(30deg);
+}
+
+/* li:nth-child(9n + 6) {
+    margin-left: 60px;
+} */

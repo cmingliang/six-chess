@@ -1,0 +1,12 @@
+.chess-box {
+    width: 80%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.row-box {
+    display: flex;
+    justify-content: center;
+    height: 48px;
+}
