@@ -43,7 +43,6 @@ class Chess extends Component {
     initData = initData.map(item =>
       item.map(element => ({ value: element, color: two[colorList[k++]] }))
     )
-    console.log(initData)
     this.setState({
       chessList: initData
     })
@@ -59,6 +58,7 @@ class Chess extends Component {
                 value={element.value}
                 key={index + element}
                 color={element.color}
+                position={[itemIndex, index]}
               />
             ))}
           </div>
