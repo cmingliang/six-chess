@@ -4,8 +4,7 @@ import "./piece.css"
 
 const Piece = props => {
   function dragStart(e) {
-    console.log(e.dataTransfer)
-    e.dataTransfer.setData("text/plain", "sdadsdad")
+    console.log(props)
   }
   function dragEnter(e) {
     e.preventDefault()
@@ -14,21 +13,23 @@ const Piece = props => {
   }
   function dragOver(e) {
     e.preventDefault()
-    const data = e.dataTransfer.getData("text/plain")
-    console.log(data)
   }
   return (
     <div
       className="piece-out-box"
       draggable
-      onDragEnter={e => {
-        dragEnter(e)
-      }}
+      //   onDragEnter={e => {
+      //     dragEnter(e)
+      //   }}
       onDragOver={e => {
         dragOver(e)
       }}
       onDragStart={e => {
         dragStart(e)
+      }}
+      onDrop={e => {
+        e.preventDefault()
+        console.log(e.target)
       }}>
       <div className="piece-in-box" style={{ backgroundColor: props.color }}>
         {props.value}

@@ -6,12 +6,44 @@ class Chess extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      chessList: []
+      chessList: [],
+      dataTrans: {}
     }
   }
 
   componentDidMount() {
     this.initChess(2)
+  }
+
+  handleDragStart=(data)=>{
+    this.setState({dataTrans:data})
+  }
+
+  canMove=(pos1,pos2)=>{
+    let rightList=[]
+    if(pos1[0]<5){
+        if(pos1[0]-1>=0){
+            rightList.push([pos1[0]-1,pos1[1]])
+            if(pos1[1]-1>=0){
+                rightList.push([pos1[0]-1,pos1[1]-1])
+            }
+        }
+    }
+    
+    if(pos1[1]-1>=0){
+        rightList.push([pos1[0],pos1[1]-1])
+    }
+    if(pos1[1]+1<this.state.chessList[pos1[0]].length){
+        rightList.push([pos1[0],pos1[1]+1])
+    }
+    if(pos1[0]+1<11){
+        
+    }
+  }
+
+  handleDrop=(props)=>{
+      const po
+    this.setState({dataTrans:data})
   }
 
   arrayShuffle = arr => {
