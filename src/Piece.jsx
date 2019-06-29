@@ -4,23 +4,24 @@ import "./piece.css"
 
 const Piece = props => {
   function dragStart(e) {
-    console.log(props)
-  }
-  function dragEnter(e) {
-    e.preventDefault()
-    const data = e.dataTransfer.getData("text/plain")
-    console.log(data)
+   const {dragStart}=props
+   dragStart(props)
   }
   function dragOver(e) {
-    e.preventDefault()
+    if(props.color!=='#fff'){
+      e.preventDefault()
+    }
   }
+  function drop(e) {
+    e.preventDefault()
+    const {drop}=props
+    drop(props)
+  }
+
   return (
     <div
       className="piece-out-box"
       draggable
-      //   onDragEnter={e => {
-      //     dragEnter(e)
-      //   }}
       onDragOver={e => {
         dragOver(e)
       }}
@@ -28,11 +29,10 @@ const Piece = props => {
         dragStart(e)
       }}
       onDrop={e => {
-        e.preventDefault()
-        console.log(e.target)
+        drop(e)
       }}>
       <div className="piece-in-box" style={{ backgroundColor: props.color }}>
-        {props.value}
+        {props.color==='#fff'?'':props.value}
       </div>
     </div>
   )
